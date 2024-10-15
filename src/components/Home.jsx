@@ -10,7 +10,7 @@ const Home = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000, // 3 seconds between automatic scroll
+    autoplaySpeed: 6000, // 6 seconds between automatic scroll
     arrows: false // No manual arrows if you want automatic only
   }
 
