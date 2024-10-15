@@ -13,6 +13,8 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--secondary-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 header {
@@ -28,9 +30,13 @@ header {
   height: 3.5em;
 }
 
-nav {
+nav{
   margin-right: 1em;
   display: flex;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 
 nav a,
@@ -44,9 +50,22 @@ nav h3 {
   transition: all 0.2s ease;
 }
 
+
 nav a:hover {
   color: var(--link-color-secondary);
   text-decoration-color: var(--link-color-primary);
+}
+
+.light a
+ {
+  text-decoration-color: var(--link-color-secondary);
+  color: black;
+
+}
+
+.light a:hover {
+  color: var(--primary-bg);
+  text-decoration-color: var(--primary-button-hover);
 }
 
 .slick-dots {
@@ -249,4 +268,74 @@ nav a:hover {
   align-items: center;
   gap: 120px;
   margin-top: 100px;
+}
+
+
+.theme-slider-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+
+.toggle {
+  position: relative;
+  width: 4.8rem;
+  height: 2.25rem;
+  padding: 0.1rem 0.3rem;
+  background-color: #ccc;
+  border-radius: 12.5rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.slider {
+  position: absolute;
+  left: 0.25rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.icon-container {
+  position: absolute;
+  width: 90%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.spacer {
+  width: 0.625rem;
+}
+
+.light,
+.light > * {
+  background-color: #f0f0f0;
+  color: #282c34;
+}
+
+.dark,
+.dark > * {
+  background-color: #282c34;
+}
+
+
+.dark .theme-slider-toggle .toggle {
+  background-color: #3f444d;
+}
+
+.dark .theme-slider-toggle .slider {
+  transform: translateX(3rem);
+}
+
+
+.dark > nav > .theme-slider-toggle .moon-icon {
+  color: #282c34;
 }
