@@ -13,6 +13,8 @@ import { useState, useEffect } from 'react'
 import { CheckSession } from './services/Auth'
 import Rides from './components/Rides'
 import rides from './rides'
+import Food from './components/Food'
+import foods from './foods'
 
 const App = () => {
   const { theme } = useContext(ThemeContext)
@@ -47,6 +49,8 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
               <Route path="/rides" element={<Rides rides={rides}/>} />
+              <Route path="/foods" element={<Food foods={foods}/>} />
+
 
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
