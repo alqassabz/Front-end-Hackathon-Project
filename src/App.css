@@ -13,6 +13,8 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--secondary-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 header {
@@ -28,9 +30,13 @@ header {
   height: 3.5em;
 }
 
-nav {
+nav{
   margin-right: 1em;
   display: flex;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 
 nav a,
@@ -44,9 +50,22 @@ nav h3 {
   transition: all 0.2s ease;
 }
 
+
 nav a:hover {
   color: var(--link-color-secondary);
   text-decoration-color: var(--link-color-primary);
+}
+
+.light a
+ {
+  text-decoration-color: var(--link-color-secondary);
+  color: black;
+
+}
+
+.light a:hover {
+  color: var(--primary-bg);
+  text-decoration-color: var(--primary-button-hover);
 }
 
 .slick-dots {
@@ -59,8 +78,8 @@ nav a:hover {
   height: 87vh;
   position: relative;
   display: flex;
-  align-items: center;  
-  justify-content: center; 
+  align-items: center;
+  justify-content: center;
   align-content: center;
   background-size: cover;
   background-position: center;
@@ -75,7 +94,7 @@ nav a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+  background-color: rgba(0, 0, 0, 0.2); /* Black overlay with 50% opacity */
   z-index: 1; /* Position below text */
 }
 
@@ -84,20 +103,20 @@ nav a:hover {
   position: relative;
   z-index: 2; /* Ensures the text is on top of the overlay */
   color: white; /* Change text color to white for contrast */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);  /* Soft black text shadow for readability */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Soft black text shadow for readability */
 }
 
 .carousel-section h1 {
-  font-size: 3rem; 
+  font-size: 3rem;
 }
 
 .carousel-section p {
-  font-size: 1.5rem; 
-  margin-top: 10px; 
+  font-size: 1.5rem;
+  margin-top: 10px;
 }
 
 .ride-button {
-  background-color: #4caf50; 
+  background-color: #4caf50;
   color: white;
   border: none;
   padding: 15px 30px;
@@ -105,29 +124,88 @@ nav a:hover {
   cursor: pointer;
   border-radius: 8px;
   margin: 10px;
-  position: relative; 
-  z-index: 2; 
+  position: relative;
+  z-index: 2;
   transition: background-color 0.3s ease;
 }
 
 .ride-button:hover {
-  background-color: #388e3c; 
+  background-color: #388e3c;
 }
 
 .ridesPoster {
-  background-image: url('https://cdna.artstation.com/p/assets/images/images/005/825/332/large/sadan-aksoy-steelhydra000.jpg?1494013129');
+  animation: changeImage 6s infinite;
+  transition: background-image 3s;
+  background-image: url('https://cdna.artstation.com/p/assets/images/images/005/825/196/large/sadan-aksoy-maliceunchained04.jpg?1494012015');
+  /* https://cdna.artstation.com/p/assets/images/images/005/825/332/large/sadan-aksoy-steelhydra000.jpg?1494013129'); */
+}
+
+@keyframes changeImage {
+  0% {
+    background-image: url('https://cdna.artstation.com/p/assets/images/images/005/825/332/large/sadan-aksoy-steelhydra000.jpg?1494013129');
+  }
+  50% {
+    background-image: url('https://cdna.artstation.com/p/assets/images/images/005/825/196/large/sadan-aksoy-maliceunchained04.jpg?1494012015');
+  }
+  100% {
+    background-image: url('https://cdna.artstation.com/p/assets/images/images/005/825/332/large/sadan-aksoy-steelhydra000.jpg?1494013129');
+  }
 }
 
 .foodPoster {
-  background-image: url("https://cdnb.artstation.com/p/assets/images/images/029/374/355/large/liudmyla-stelmakh-agrabah-palace-01.jpg?1597332382");
+  animation: changeFoods 6s infinite;
+  transition: background-image 3s;
+  background-image: url('https://cdnb.artstation.com/p/assets/images/images/029/374/355/large/liudmyla-stelmakh-agrabah-palace-01.jpg?1597332382');
+}
+
+@keyframes changeFoods {
+  0% {
+    background-image: url('https://cdna.artstation.com/p/assets/images/images/061/553/226/large/isabella-martinez-luna-beauty-render-color.jpg?1681106476');
+  }
+  50% {
+    background-image: url('https://cdnb.artstation.com/p/assets/images/images/029/374/355/large/liudmyla-stelmakh-agrabah-palace-01.jpg?1597332382');
+  }
+  100% {
+    background-image: url('https://cdna.artstation.com/p/assets/images/images/061/553/226/large/isabella-martinez-luna-beauty-render-color.jpg?1681106476');
+  }
 }
 
 .hotelPoster {
-  background-image: url("https://cdnb.artstation.com/p/assets/images/images/070/570/029/large/david-freeman-d100-scene-end-frame-v008-001-df.jpg?1702888512");
+  animation: changeHotel 6s infinite;
+  transition: background-image 3s;
+  background-image: url('https://cdnb.artstation.com/p/assets/images/images/070/570/029/large/david-freeman-d100-scene-end-frame-v008-001-df.jpg?1702888512');
+
+  /* https://cdna.artstation.com/p/assets/images/images/003/607/180/large/craig-voigt-003-disney-castle.jpg?1475538605 */
+}
+
+@keyframes changeHotel {
+  0% {
+    background-image: url('https://cdnb.artstation.com/p/assets/images/images/023/902/999/large/andrey-simonenko-disneylandcinderellacastle3dmodel004-jpg5ad779c6-4f1c-4c52-9f04-a9a708a72774defaulthq.jpg?1580725046');
+  }
+  50% {
+    background-image: url('https://cdnb.artstation.com/p/assets/images/images/070/570/029/large/david-freeman-d100-scene-end-frame-v008-001-df.jpg?1702888512');
+  }
+  100% {
+    background-image: url('https://cdnb.artstation.com/p/assets/images/images/023/902/999/large/andrey-simonenko-disneylandcinderellacastle3dmodel004-jpg5ad779c6-4f1c-4c52-9f04-a9a708a72774defaulthq.jpg?1580725046');
+  }
 }
 
 .giftsPoster {
+  animation: changeGifts 6s infinite;
+  transition: background-image 3s;
   background-image: url('https://cdnb.artstation.com/p/assets/images/images/078/338/021/large/kevin-axel-duffy-movers-clay-01.jpg?1721828195');
+}
+
+@keyframes changeGifts {
+  0% {
+    background-image: url('https://cdna.artstation.com/p/assets/images/images/007/615/874/large/tzu-yu-kao-at-trick-or-treat-party-1005ss1.jpg?1507348481');
+  }
+  50% {
+    background-image: url('https://cdnb.artstation.com/p/assets/images/images/078/338/021/large/kevin-axel-duffy-movers-clay-01.jpg?1721828195');
+  }
+  100% {
+    background-image: url('https://cdna.artstation.com/p/assets/images/images/007/615/874/large/tzu-yu-kao-at-trick-or-treat-party-1005ss1.jpg?1507348481');
+  }
 }
 
 .carousel-section h1,
@@ -135,104 +213,131 @@ nav a:hover {
   position: relative;
   z-index: 2;
 }
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
 
-button {
-  border: 0;
+
+.box {
+  position: relative;
+  width: 250px;  /* Define a fixed width for the box */
+  height: 250px; /* Define a fixed height for the box */
+  background-color: transparent;
+  border-radius: 15px; /* Optional if you want rounded corners */
+  overflow: visible; /* Ensures rotating element isn't clipped */
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Padding inside the box */
+}
+
+@keyframes scaleBorder {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2); /* Scales up the border */
+  }
+}
+
+.box::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  border-radius: 15px;
+  background-image: url('../public/food-border.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+  
+}
+
+.box:hover{
+  animation: scaleBorder 1s ease-in-out infinite; /* Scaling effect */
+}
+
+
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
+  margin-top: 100px;
+}
+
+
+.theme-slider-toggle {
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  transition: all 0.2s ease;
-  padding: 0.8em 1.2em;
-  font-size: 1.1rem;
+  position: relative;
 }
 
-button,
-input {
-  border-radius: 8px;
-}
 
-header {
-  max-height: 4em;
+.toggle {
+  position: relative;
+  width: 4.8rem;
+  height: 2.25rem;
+  padding: 0.1rem 0.3rem;
+  background-color: #ccc;
+  border-radius: 12.5rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: var(--primary-bg);
 }
 
-.logo,
-.logo-wrapper {
-  height: 3.5em;
+.slider {
+  position: absolute;
+  left: 0.25rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: all 0.3s ease;
 }
 
-nav {
-  margin-right: 1em;
+.icon-container {
+  position: absolute;
+  width: 90%;
+  height: 100%;
   display: flex;
-}
-
-nav a,
-nav h3 {
-  text-decoration-color: var(--primary-bg);
-  margin: auto 1em;
-  color: var(--link-color-primary);
-  padding: 5px 10px;
-  border-radius: 6px;
-  font-weight: 800;
-  transition: all 0.2s ease;
-}
-
-nav a:hover {
-  color: var(--link-color-secondary);
-  text-decoration-color: var(--link-color-primary);
-}
-
-main {
-  min-height: calc(100vh - 4em);
-}
-
-.col {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
-.home-container,
-.signin {
-  min-height: calc(100vh - 4em);
-  align-items: center;
-  justify-content: center;
+.spacer {
+  width: 0.625rem;
 }
 
-.home-container img {
-  max-width: 80%;
-  margin: 0 auto;
+.light,
+.light > * {
+  background-color: #f0f0f0;
+  color: #282c34;
 }
 
-.home-container button {
-  padding: 0.8em 1.2em;
-  background-color: var(--primary-bg);
-  color: var(--link-color-secondary);
-  font-size: 1.1rem;
+.dark,
+.dark > * {
+  background-color: #282c34;
 }
 
-.home-container button:hover {
-  transform: scale(1.1);
-  background-color: var(--primary-button-hover);
-  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+
+.dark .theme-slider-toggle .toggle {
+  background-color: #3f444d;
 }
 
-.card-overlay {
-  /* border: 2px solid var(--primary-button-hover); */
-  width: 60%;
-  padding: 1em;
-  border-radius: 8px;
-  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3);
+.dark .theme-slider-toggle .slider {
+  transform: translateX(3rem);
 }
 
-form,
-.input-wrapper {
-  margin: auto;
-  width: 80%;
+
+.dark > nav > .theme-slider-toggle .moon-icon {
+  color: #282c34;
 }
 
 form label {
