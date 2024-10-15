@@ -8,6 +8,8 @@ import Register from './pages/Register'
 import SignIn from './pages/SignIn'
 import { useState, useEffect } from 'react'
 import { CheckSession } from './services/Auth'
+import Rides from './components/Rides'
+import rides from './rides'
 
 
 const App = () => {
@@ -39,7 +41,7 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/rides" element={<h1>Hello There</h1>} />
+          <Route path="/rides" element={<Rides rides={rides}/>} />
 
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
