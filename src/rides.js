@@ -3,7 +3,8 @@ const rides = [
     title: 'Cloud Chaser',
     heightLimit: '160',
     capacityLimit: '20',
-    deathRisk: 'High'
+    deathRisk: 'High',
+    img: ''
   },
   {
     title: 'Devils Tower',
