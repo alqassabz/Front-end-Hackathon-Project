@@ -1,24 +1,23 @@
-// import { useState, useEffect } from 'react'
-// import { Route, Routes } from 'react-router'
-// import Food from './components/Food'
-// import GiftShop from './components/GiftShop'
-// import Rides from './components/Rides'
-import Home from './pages/Home'
-// import Register from './pages/Register'
-// import SignIn from './pages/SignIn'
-import Nav from './components/Nav'
 import './App.css'
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import Nav from './components/Nav'
+import { Route, Routes } from 'react-router-dom'
+import Home from './components/Home'
 
 
 const App = () => {
+
   return (
     <div className='App'>
       <Nav />
       <main>
-      <Home />
-    
+        <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/rides" element={<h1>Hello There</h1>} />
+        
+        </Routes>
       </main>
-    
     </div>
   )
 }
