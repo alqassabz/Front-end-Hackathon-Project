@@ -7,9 +7,37 @@ import Home from './components/Home'
 import ThemeToggle from './components/ThemeToggle'
 import ThemeContext from './context/ThemeContext'
 import { useContext } from 'react'
+import Register from './pages/Register'
+import SignIn from './pages/SignIn'
+import { useState, useEffect } from 'react'
+import { CheckSession } from './services/Auth'
+import Rides from './components/Rides'
+import rides from './rides'
 
 const App = () => {
   const { theme } = useContext(ThemeContext)
+  const [user, setUser] = useState(null)
+
+  const handleLogOut = () => {
+    //Reset all auth related state and clear localStorage
+    setUser(null)
+    localStorage.clear()
+  }
+
+  const checkToken = async () => {
+    //If a token exists, sends token to localStorage to persist logged in user
+    const user = await CheckSession()
+    setUser(user)
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+
+    if (token) {
+      checkToken()
+    }
+  }, [])
+
   return (
     <div className="App ">
       <div className={theme}>
@@ -18,36 +46,11 @@ const App = () => {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route
-              path="/rides"
-              element={
-                <div className="boxes">
-                  {
-                    // Do something here inside the map
-                    <>
-                      <div className="box">
-                        <h1>Hello</h1>
-                      </div>
-                      <div className="box">
-                        <h1>Hello</h1>
-                      </div>
-                      <div className="box">
-                        <h1>Hello</h1>
-                      </div>
-                      <div className="box">
-                        <h1>Hello</h1>
-                      </div>
-                      <div className="box">
-                        <h1>Hello</h1>
-                      </div>
-                      <div className="box">
-                        <h1>Hello</h1>
-                      </div>
-                    </>
-                  }
-                </div>
-              }
-            />
+              <Route path="/rides" element={<Rides rides={rides}/>} />
+
+          <Route path="/signin" element={<SignIn setUser={setUser} />} />
+          <Route path="/register" element={<Register />} />
+           
           </Routes>
         </main>
       </div>

@@ -26,6 +26,7 @@ const Register = () => {
     })
     setFormValues(initialState)
     navigate("/signin")
+  
   }
 
   return (
@@ -38,7 +39,7 @@ const Register = () => {
               onChange={handleChange}
               name="name"
               type="text"
-              placeholder="John Smith"
+              placeholder="Joe Mama"
               value={formValues.name}
               required
             />
