@@ -4,7 +4,7 @@ import { useContext } from 'react'
 
 
 const ThemeToggle = () => {
- 
+
   const { toggleTheme } = useContext(ThemeContext)
   return (
     <div className="theme-slider-toggle" onClick={toggleTheme}>
