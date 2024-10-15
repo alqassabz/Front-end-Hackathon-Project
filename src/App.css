@@ -382,51 +382,99 @@ form button:disabled {
   cursor: not-allowed;
 }
 
-.ride-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: rgb(251, 249, 249);
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .ride-info h2 {
-    color: var(--primary-bg);
-    margin-bottom: 1rem;
-  }
-  
-  .ride-info p {
-    text-align: center;
-    margin-bottom: 0.5rem;
-    color: #333;
-  }
-  
-  .ride-info img {
-    max-width: 100%;
-    border-radius: 8px;
-    margin: 1rem 0;
-  }
-  
-  .ride-info button {
-    background-color: var(--primary-bg);
-    color: var(--link-color-secondary);
-    padding: 0.8em 1.2em;
-    margin-top: 1rem;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  .ride-info button:hover {
-    background-color: var(--primary-button-hover);
-  }
+.rides-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  .rides-container  {
-    text-align: center;
+.rides-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.rides-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.ride-info {
+  position: relative;
+  height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ride-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.ride-details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 15px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.ride-info:hover .ride-image {
+  transform: scale(1.1);
+}
+
+.ride-info:hover .ride-details {
+  transform: translateY(0);
+}
+
+.ride-details h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.ride-details p {
+  margin: 5px 0;
+  font-size: 0.9em;
+}
+
+.ride-details button {
+  background-color: var(--primary-bg);
+  color: var(--link-color-secondary);
+  padding: 0.5em 1em;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ride-details button:hover {
+  background-color: var(--primary-button-hover);
+}
+
+@media (max-width: 900px) {
+  .rides-list {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
+
+@media (max-width: 600px) {
+  .rides-list {
+    grid-template-columns: 1fr;
+  }
+}
   .food-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -603,6 +651,86 @@ form button:disabled {
 
   #sixteen {
     background: url('https://i0.wp.com/chasety.com/wp-content/uploads/2023/08/realchasecurtis_blueberry_lavender_lemonade_sitting_on_a_cookie_ce5f8270-99df-4aa7-9ede-ab191de61e06.png?fit=735%2C1311&ssl=1')
+    center;
+    background-size: cover;
+  }
+
+
+
+
+
+
+
+
+
+  #I {
+    background: url('https://static01.nyt.com/images/2023/07/02/multimedia/29ROLLERCOASTER-02-lwgc/29ROLLERCOASTER-02-lwgc-mediumSquareAt3X.jpg')
+    center;
+  background-size: cover;
+  }
+
+  #II {
+    background: url('https://www.gardaland.it/media/ljhe1ugi/copertina-bluetornado.jpg?center=0.22518518518518518,0.79&mode=crop&format=webp&quality=80&width=500&height=500')
+    center;
+  background-size: cover;
+  }
+
+  #III {
+    background: url('https://img.freepik.com/premium-photo/dragon-roller-coaster-theme-park_1072138-129412.jpg')
+    center;
+  background-size: cover;
+  }
+
+  #IV {
+    background: url('https://img.freepik.com/premium-photo/monster-with-scary-face-is-front-roller-coaster_783884-404612.jpg')
+    center;
+    background-size: cover;
+  }
+
+  #V {
+    background: url('https://www.attractiontix.co.uk/blog/wp-content/uploads/2023/09/Screenshot-2023-09-12-16.52.01.png')
+    center;
+    background-size: cover;
+  }
+
+  #VI {
+    background: url('https://www.worldatlas.com/r/w1200/upload/65/79/7f/roller-coaster.jpg')
+    center;
+    background-size: cover;
+  }
+
+  #VII {
+    background: url('https://media.licdn.com/dms/image/C4E12AQHYnjrEcwHgpw/article-cover_image-shrink_720_1280/0/1630576036821?e=2147483647&v=beta&t=KvJAzvM89G3oVA5a5iCnrQFJH6P_8HnUG-4O4IU3HXQ')
+    center;
+    background-size: cover;
+  }
+
+  #VIII {
+    background: url('https://www.emeraldpark.ie/wp-content/uploads/2023/01/rotator-1200.jpg')
+    center;
+    background-size: cover;
+  }
+
+  #IX {
+    background: url('https://www.newsday.com/_next/image?url=https%3A%2F%2Fcdn.newsday.com%2Fimage-service%2Fversion%2Fc%3AMTE0N2ZhNWEtNzhlYy00%3AYWRiYzM2%2Fkiadven240318.jpg%3Ff%3DLandscape%2B16%253A9%26w%3D770%26q%3D1&w=1920&q=80')
+    center;
+    background-size: cover;
+  }
+
+  #X {
+    background: url('https://i.pinimg.com/736x/c2/0f/92/c20f92e225de458e1fb337f0b425dddb.jpg')
+    center;
+    background-size: cover;
+  }
+
+  #XI {
+    background: url('https://lumiere-a.akamaihd.net/v1/images/toystoryland-parks-emeagrid-m_94e598ab.jpeg?region=0,0,800,600')
+    center;
+    background-size: cover;
+  }
+
+  #XII {
+    background: url('https://www.coaster101.com/wp-content/uploads/2020/11/BGT002.jpg')
     center;
     background-size: cover;
   }
