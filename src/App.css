@@ -277,3 +277,50 @@ form button:disabled {
   cursor: not-allowed;
 }
 
+.ride-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ride-info h2 {
+    color: var(--primary-bg);
+    margin-bottom: 1rem;
+  }
+  
+  .ride-info p {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .ride-info img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 1rem 0;
+  }
+  
+  .ride-info button {
+    background-color: var(--primary-bg);
+    color: var(--link-color-secondary);
+    padding: 0.8em 1.2em;
+    margin-top: 1rem;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .ride-info button:hover {
+    background-color: var(--primary-button-hover);
+  }
+
+  .rides-container  {
+    text-align: center;
+  }
+
+
