@@ -15,6 +15,8 @@ import Rides from './components/Rides'
 import rides from './rides'
 import Food from './components/Food'
 import foods from './foods'
+import Shop from './components/Shop'
+
 
 const App = () => {
   const { theme } = useContext(ThemeContext)
@@ -55,6 +57,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
               <Route path="/rides" element={<Rides rides={rides}/>} />
               <Route path="/foods" element={<Food foods={foods}/>} />
+              <Route path="/shop" element={<Shop />} />
 
 
             <Route path="/signin" element={<SignIn setUser={setUser} />} />

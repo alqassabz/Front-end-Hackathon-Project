@@ -13,7 +13,7 @@ const Food = ({ foods }) => {
               {[...Array(20)].map((_, index) => (
                 <div className={`blood-drop drop-${index + 1}`} key={index}></div>
               ))}
-              <div className="ride-image" style={{backgroundImage: `url(placeholder-image-url-for-${food.name})`}}></div>
+              <div className="ride-image" ><img src={food.img} alt="" /></div>
               <div className="ride-details spooky-content">
                 <h3>{food.name}</h3>
                 <h5>Food Category: {food.type}</h5>

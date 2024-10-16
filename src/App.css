@@ -7,7 +7,7 @@
 :root {
   --primary-bg: #000411;
   --link-color-primary: #00f110;
-  --secondary-bg: #28da1c;
+  --secondary-bg: #b6e1e1;
   --link-color-secondary: #0bee5b;
   --primary-button-hover: #160c28;
 }
@@ -428,6 +428,7 @@ li{
   overflow: hidden;
   font-family: 'Creepster', sans-serif;
   text-align: center;
+  gap: 500px;
 }
 
 /* Add Scary Fog Overlay */
@@ -1348,8 +1349,8 @@ form button:disabled {
   outline: none;
 }
 
-.light .submit {
-  width: 100%; /* Full width for button */
+.light .submit, .light .clothes, .light .gifts {
+  width: 300px; /* Full width for button */
   padding: 15px; /* Padding inside button */
   background-color: #ff6347; /* Fun, festive red background */
   color: white; /* Button text color */
@@ -1359,9 +1360,10 @@ form button:disabled {
   transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
   font-family: 'Magic', sans-serif; /* Festive font */
   font-size: 1.1rem;
+  margin: 0 25px;
 }
 
-.light .submit:hover {
+.light .submit:hover, .light .clothes:hover, .light .gifts:hover {
   background-color: #ff4500; /* Darker red on hover */
   transform: scale(1.05); /* Slightly grow on hover */
   box-shadow: 0 0 10px rgba(255, 69, 0, 0.7); /* Magical glow on hover */
@@ -1474,8 +1476,8 @@ background-color: #000411;
   outline: none;
 }
 
-.dark .submit {
-  width: 100%; /* Full width for button */
+.dark .submit, .dark .clothes, .dark .gifts {
+  width: 300px; /* Full width for button */
   padding: 15px; /* Padding inside button */
   background-color: #d73a00; /* Blood-red button background */
   color: white; /* Button text color */
@@ -1485,9 +1487,15 @@ background-color: #000411;
   transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
   font-family: 'Creepster', sans-serif; /* Scary font */
   font-size: 1.1rem;
+  margin: 0 25px;
+
 }
 
-.dark .submit:hover {
+h1, h2 {
+  margin: 50px 25px;
+}
+
+.dark .submit:hover, .dark .clothes:hover, .dark .gifts:hover {
   background-color: #b22222; /* Darker red on hover */
   transform: scale(1.05); /* Slightly grow on hover */
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.9); /* Sinister glow on hover */
@@ -1583,9 +1591,10 @@ background-color: #000411;
 }
 
 .light .rides-container {
-  max-width: 1200px;
+  max-width: 100vw;
   margin: 0 auto;
   padding: 20px;
+
 }
 
 .light .rides-container h1 {

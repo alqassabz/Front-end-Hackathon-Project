@@ -36,15 +36,9 @@ const Home = () => {
           <button className="ride-button">Learn More</button>
         </Link>
       </div>
-      <div className="carousel-section hotelPoster">
-        <h1>Stay In the Most Luxurious Hotels</h1>
-        <Link to="hotels/">
-          <button className="ride-button">Learn More</button>
-        </Link>
-      </div>
       <div className="carousel-section giftsPoster">
         <h1>Grab Amazing Souvenirs</h1>
-        <Link to="gifts/">
+        <Link to="shop/">
           <button className="ride-button">Learn More</button>
         </Link>
 
