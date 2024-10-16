@@ -2,6 +2,53 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
+/* Import cool fonts */
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cagliostro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+
+/* Apply a cool font to h3 */
+.light .item-list h3 {
+  /* Uncomment one of the following to apply the desired font */
+  
+  /* Option 1: Creepster */
+  /* font-family: 'Creepster', cursive; */
+
+  /* Option 2: Fredericka the Great */
+  /* font-family: 'Fredericka the Great', cursive; */
+
+  /* Option 3: Nosifer */
+  /* font-family: 'Nosifer', cursive; */
+
+  /* Option 4: Zeyada */
+  /* font-family: 'Zeyada', cursive; */
+
+  /* Option 5: Gravitas One */
+  /* font-family: 'Gravitas One', serif; */
+
+  /* Option 6: Cagliostro */
+  /* font-family: 'Cagliostro', sans-serif; */
+
+  /* Option 7: Black Han Sans */
+  font-family: 'Black Han Sans', sans-serif;
+
+  /* Option 8: Monoton */
+  /* font-family: 'Monoton', cursive; */
+
+  color: white;
+  margin-top: 50px;
+}
+
+.dark .item-list h3{
+  margin-top: 50px;
+}
+
+
 
 
 :root {
@@ -161,8 +208,12 @@ nav a:hover {
   transition: background-color 0.3s ease;
 }
 
-.ride-button:hover {
+.light .ride-button:hover {
   background-color: #388e3c;
+}
+
+.dark .ride-button:hover {
+  background-color: #3f0202;
 }
 
 .ridesPoster {
@@ -370,7 +421,7 @@ li{
 
 .light,
 .light > * {
-  background-color: #fffefe;
+  background-color: #aef29f;
   color: #282c34;
 }
 
@@ -420,7 +471,7 @@ li{
 
 /* Main Halloween Theme Container */
 .light .rides-container {
-  background-color: white;
+  background-color: #ffe1e1;
   color: black;
   padding: 40px 20px;
   min-height: 100vh;
@@ -442,7 +493,7 @@ li{
   background: url('https://i.imgur.com/Vmy5YvL.png') repeat; /* Dark fog image */
   opacity: 0.2;
   z-index: -1;
-  animation: fogMove 10s linear infinite;
+  /* animation: fogMove 10s linear infinite; */
 }
 
 /* Title Styling with Blood Drip and Flicker */
@@ -602,6 +653,10 @@ li{
 .dark .ride-content h5 {
   color: #ffcc00;
   margin: 5px 0;
+
+}
+.light h5, .light h3{
+  font-family: 'Black Han Sans', sans-serif;
 }
 
 /* No Rides Available Message */
@@ -623,7 +678,7 @@ li{
 
 /* Main Theme Park Halloween Theme Container */
 .light .rides-container {
-  background: linear-gradient(135deg, #ff6f61, #ffcc00); /* Bright festive gradient */
+   /* Bright festive gradient */
   color: #333; /* Dark text for readability */
   padding: 40px 20px;
   min-height: 100vh;
@@ -635,9 +690,9 @@ li{
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay;
-  animation: festivalGlow 10s infinite alternate; /* Continuous glow animation */
+  /* animation: festivalGlow 10s infinite alternate; Continuous glow animation */
   cursor: url('https://i.imgur.com/hwbLWAW.png'), auto; /* Custom cursor for magic touch */
-  filter: drop-shadow(0px 0px 30px rgba(255, 100, 0, 0.6)); /* A glowing drop shadow for extra magic */
+  /* filter: drop-shadow(0px 0px 30px rgba(255, 100, 0, 0.6)); A glowing drop shadow for extra magic */
 }
 
 @keyframes festivalGlow {
@@ -678,7 +733,7 @@ li{
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(255, 165, 0, 0.8); /* Orange glow */
-  transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+  /* transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out; */
   width: 320px; /* Set width for consistency */
   text-align: center;
   position: relative;
@@ -688,14 +743,14 @@ li{
 
 .light .ride-box:hover {
   /* transform: rotateY(15deg) scale(1.1); 3D rotation on hover */
-  transform: scale(1.1) rotate(-3deg);
+  /* transform: scale(1.1) rotate(-3deg); */
   box-shadow: 0 0 40px rgba(255, 165, 0, 1), 0 0 50px rgba(255, 100, 0, 0.7); /* Bright magical glow */
 }
 
 /* Title for Each Ride with Colorful Animation */
 .light .ride-content h3 {
   color: #ff5722; /* Bright coral color for ride title */
-  font-family: 'Nosifer', cursive;
+  font-family: 'Black Han Sans', sans-serif;
   font-size: 2.8rem;
   margin-bottom: 1px;
   animation: shake 2s infinite ease-in-out, colorPulse 3s infinite;
@@ -748,7 +803,7 @@ li{
   background: url('https://images.unsplash.com/photo-1528910753910-75c1c480c69b') repeat;
   opacity: 0.2;
   pointer-events: none;
-  animation: float 10s infinite ease-in-out; /* Floating background */
+  /* animation: float 10s infinite ease-in-out; Floating background */
 }
 
 @keyframes float {
@@ -924,7 +979,7 @@ form button:disabled {
 }
 
 .light .rides-list {
-  background-color: rgb(255, 255, 255);
+  background-color: #ffe1e1;
   color: #050505;
   padding: 40px 20px;
   min-height: 100vh;
@@ -956,10 +1011,10 @@ form button:disabled {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('https://i.imgur.com/Vmy5YvL.png') repeat; /* Dark fog image */
+  /* background: url('https://i.imgur.com/Vmy5YvL.png') repeat;  */
   opacity: 0.2;
   z-index: -1;
-  animation: fogMove 10s linear infinite;
+  /* animation: fogMove 10s linear infinite; */
 }
 
 /* Title Styling with Blood Drip and Flicker */
@@ -1140,21 +1195,21 @@ form button:disabled {
 
 /* Main Theme Park Halloween Theme Container */
 .light .rides-container {
-  background: linear-gradient(135deg, #ff6f61, #ffcc00); /* Bright festive gradient */
+  /* Bright festive gradient */
   color: #333; /* Dark text for readability */
   padding: 40px 20px;
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun font for a festive feel */
+  font-family: 'Black Han Sans', sans-serif;
   text-align: center;
   background-image: url('https://images.unsplash.com/photo-1501700493785-56a2d2bb2875');
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay;
-  animation: festivalGlow 10s infinite alternate; /* Continuous glow animation */
+  /* animation: festivalGlow 10s infinite alternate; Continuous glow animation */
   cursor: url('https://i.imgur.com/hwbLWAW.png'), auto; /* Custom cursor for magic touch */
-  filter: drop-shadow(0px 0px 30px rgba(255, 100, 0, 0.6)); /* A glowing drop shadow for extra magic */
+  /* filter: drop-shadow(0px 0px 30px rgba(255, 100, 0, 0.6)); A glowing drop shadow for extra magic */
 }
 
 @keyframes festivalGlow {
@@ -1191,28 +1246,39 @@ form button:disabled {
 
 /* Ride Box: Vibrant and interactive */
 .light .ride-box {
-  background-color: #ffeedd; /* Light pastel background */
-  padding: 30px;
+  background-color: #f3f58e; /* Light pastel background */
+  padding: 10px;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(255, 165, 0, 0.8); /* Orange glow */
-  transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+  /* transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out; */
   width: 320px; /* Set width for consistency */
   text-align: center;
   position: relative;
   overflow: hidden;
-  transform-style: preserve-3d; /* 3D effect */
+  /* transform-style: preserve-3d; 3D effect */
+  border: 15px dotted;
+  /* border-radius: 20px; */
+  animation: Lights 1s infinite;
+  margin: 10px 20px;
 }
 
 .light .ride-box:hover {
   /* transform: rotateY(15deg) scale(1.1); 3D rotation on hover */
-  transform: scale(1.1) rotate(-3deg);
+  /* transform: scale(1.1) rotate(-3deg); */
   box-shadow: 0 0 40px rgba(255, 165, 0, 1), 0 0 50px rgba(255, 100, 0, 0.7); /* Bright magical glow */
+  
+}
+
+@keyframes Lights {
+  0% { border-color: #f8f3ee; } 
+  75% { border-color: #f9c855; } 
+  100% { border-color: #f6a656; } 
 }
 
 /* Title for Each Ride with Colorful Animation */
 .light .ride-content h3 {
   color: #ff5722; /* Bright coral color for ride title */
-  font-family: 'Nosifer', cursive;
+  font-family: 'Black Han Sans', sans-serif;
   font-size: 2.8rem;
   margin-bottom: 5px;
   animation: shake 2s infinite ease-in-out, colorPulse 3s infinite;
@@ -1656,6 +1722,7 @@ h1, h2 {
 .ride-details p {
   margin: 5px 0;
   font-size: 0.9em;
+  font-family: 'Black Han Sans', sans-serif;
 }
 
 .ride-details button {
@@ -1749,6 +1816,7 @@ ul {
 .food-info h5 {
   margin: 5px 0;
   font-size: 0.9em;
+  font-family: 'Black Han Sans', sans-serif;
 }
 
 @media (max-width: 1200px) {
@@ -1938,3 +2006,203 @@ ul {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+.dark .shop-container {
+  background-color: #1c1c1c; /* Dark background */
+  color: #f8f8f8; /* Light text */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.dark .shop-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.dark .category-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.dark .category-button {
+  background-color: #c72c2c; /* Spooky red */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.dark .category-button:hover {
+  background-color: #a62323; /* Darker red on hover */
+}
+
+.dark .item-category-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-family: 'Nosifer', cursive;
+
+}
+
+.dark .item-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dark .item-list h3, .dark .item-list p{
+  font-family: 'Nosifer', cursive;
+}
+
+.dark .item-card {
+  background-color: #292929; /* Darker box for items */
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark .item-details {
+  text-align: center;
+}
+
+.dark .item-image {
+  width: 250px;
+  height: 200px;
+  border-radius: 5px;
+}
+
+.dark .delete-button {
+  background-color: transparent; /* Transparent for spooky theme */
+  color: #c72c2c; /* Spooky red */
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: transform 0.3s;
+}
+
+.dark .delete-button:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+
+
+
+
+
+.light .shop-container {
+  background-color: #ffe1e1; /* Dark background */
+  color: #242424; /* Light text */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.light .shop-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.light .category-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.light .category-button {
+  background-color: #c72c2c; /* Spooky red */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.light .category-button:hover {
+  background-color: #a62323; /* Darker red on hover */
+}
+
+.light .item-category-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-family: 'Black Han Sans', sans-serif;
+}
+
+.light .item-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* .light .item-list h3{
+  color: white;
+  margin-top: 50px;
+  font-family: 'Zeyada', cursive;
+} */
+
+.light .item-list p{
+  color: white;
+}
+
+.light .item-card {
+  background-color: #292929; /* Darker box for items */
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.light .item-details {
+  text-align: center;
+}
+
+.light .item-image {
+  width: 250px;
+  height: 200px;
+  border-radius: 5px;
+}
+
+.light .delete-button {
+  background-color: transparent; /* Transparent for spooky theme */
+  color: #c72c2c; /* Spooky red */
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: transform 0.3s;
+}
+
+.light .delete-button:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+
+.light .rides-list {
+  background-color: #ffe1e1; /* Make sure this is correct */
+}

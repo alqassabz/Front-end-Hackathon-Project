@@ -16,58 +16,45 @@ import rides from './rides'
 import Food from './components/Food'
 import foods from './foods'
 import Shop from './components/Shop'
-
-
 const App = () => {
   const { theme } = useContext(ThemeContext)
   const [user, setUser] = useState(null)
-
-  const handleLogOut = () => {
+  const handleLogout = () => {
     //Reset all auth related state and clear localStorage
     setUser(null)
     localStorage.clear()
   }
-
   const checkToken = async () => {
     //If a token exists, sends token to localStorage to persist logged in user
     const user = await CheckSession()
     setUser(user)
   }
-
   useEffect(() => {
     const token = localStorage.getItem('token')
-
     if (token) {
       checkToken()
     }
   }, [])
-
   useEffect(() => {
     // Apply the theme to the body or html element
     document.documentElement.className = theme
   }, [theme])
-
   return (
     <div className="App ">
       <div className={theme}>
-        <Nav />
-       
+        <Nav user={user} handleLogout={handleLogout}/>
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
               <Route path="/rides" element={<Rides rides={rides}/>} />
               <Route path="/foods" element={<Food foods={foods}/>} />
               <Route path="/shop" element={<Shop />} />
-
-
             <Route path="/signin" element={<SignIn setUser={setUser} />} />
             <Route path="/register" element={<Register />} />
           </Routes>
         </main>
-        
       </div>
     </div>
   )
 }
-
 export default App

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Ghosts from "./Ghosts"
 
 const Shop = () => {
   const [items, setItems] = useState([]);
@@ -24,7 +25,7 @@ const Shop = () => {
 
   const handleDelete = async (itemId) => {
     try {
-      await axios.delete(`http://localhost:3001/${itemCategory}/${itemId}`)
+      await axios.delete(`http://localhost:3001/${itemCategory}/${itemId}`);
       setItems(items.filter(item => item._id !== itemId));
     } catch (error) {
       console.error('Error deleting item:', error);
@@ -32,37 +33,29 @@ const Shop = () => {
   };
 
   return (
-    <div>
-      <h1>Shop</h1>
-      <div>
-        <button className='clothes' onClick={() => handleClick('clothes')}>Clothes</button>
-        <button className='gifts' onClick={() => handleClick('gifts')}>Gifts</button>
+    <>
+    <div className="shop-container">
+      <h1 className="shop-title">🕷️ Spooky Shop 🕷️</h1>
+      <div className="category-buttons">
+        <button className='category-button clothes' onClick={() => handleClick('clothes')}>Clothes</button>
+        <button className='category-button gifts' onClick={() => handleClick('gifts')}>Gifts</button>
       </div>
-      <h2>{itemCategory.charAt(0).toUpperCase() + itemCategory.slice(1)}</h2>
-      <ul>
+      <h2 className="item-category-title">{itemCategory.charAt(0).toUpperCase() + itemCategory.slice(1)}</h2>
+      <ul className="item-list">
         {items.map(item => (
-          <li key={item._id}>
-            {itemCategory === 'clothes' ? (
-              <>
-                <p>Name: {item.name}</p>
-                <img className="Clothing_items" src={item.image} alt={item.name} />
-                <p>Size: {item.size}</p>
-                <p>Price: ${item.price}</p>
-                
-              </>
-            ) : (
-              <>
-                <p>Name: {item.name}</p>
-                <img className="Gift_items" src={item.image} alt={item.name} />
-                <p>Price: ${item.price}</p>
-                
-              </>
-            )}
-            <button onClick={() => handleDelete(item._id)}>Delete</button>
+          <li key={item._id} className="item-card spooky-box">
+            <div className="item-details">
+              <h3>Name: {item.name}</h3>
+              <img className="item-image" src={item.image} alt={item.name} />
+              {itemCategory === 'clothes' && <p>Size: {item.size}</p>}
+              <p>Price: ${item.price}</p>
+            </div>
+            <button className="delete-button" onClick={() => handleDelete(item._id)}>🗑️ Delete</button>
           </li>
         ))}
       </ul>
-    </div>
+    </div><Ghosts />
+    </>
   );
 };
 
