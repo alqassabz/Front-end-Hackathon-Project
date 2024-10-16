@@ -3,20 +3,20 @@ import Ghosts from "./Ghosts";
 const Rides = ({ rides }) => {
   return (
     <>
-    <div className="halloween-theme">
+    <div className="rides-container">
       <h1 className="spooky-title">Haunted Rollercoasters</h1>
-      <ul className="rides-container">
+      <ul className="rides-list">
         {rides ? (
           rides.map((ride) => (
-            <div className="ride-box spooky-box" key={ride.id}>
+            <div className="ride-box spooky-box ride-info" key={ride.id}>
               {/* Adding Blood Drops */}
               {[...Array(20)].map((_, index) => (
                 <div className={`blood-drop drop-${index + 1}`} key={index}></div>
               ))}
+              <div className="ride-image"><img src={ride.img} alt="" /></div>
               
-              <div className="ride-content spooky-content">
+              <div className="ride-details spooky-content">
                 <h3>{ride.title}</h3>
-                <img src="https://www.parksavers.com/wp-content/uploads/2021/12/Incredicoaster-scaled.jpg" alt="Poster" />
                 <h5>Height Limit: {ride.heightLimit} meters</h5>
                 <h5>Capacity: {ride.capacityLimit}</h5>
                 <h5>Death Risk: {ride.deathRisk}%</h5>

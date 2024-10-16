@@ -6,11 +6,13 @@
 
 :root {
   --primary-bg: #000411;
-  --link-color-primary: #aeb7b3;
-  --secondary-bg: #b6e1e1;
-  --link-color-secondary: #e1efe6;
+  --link-color-primary: #00f110;
+  --secondary-bg: #28da1c;
+  --link-color-secondary: #0bee5b;
   --primary-button-hover: #160c28;
 }
+
+/* #b6e1e1 */
 
 
 
@@ -70,7 +72,7 @@ nav a:hover {
 }
 
 .light a
- {
+{
   text-decoration-color: var(--link-color-secondary);
   color: black;
 
@@ -368,7 +370,7 @@ li{
 
 .light,
 .light > * {
-  background-color: #f0f0f0;
+  background-color: #fffefe;
   color: #282c34;
 }
 
@@ -403,8 +405,8 @@ li{
 }
 
 /* Main Halloween Theme Container */
-.dark .halloween-theme {
-  background-color: black;
+.dark .rides-container {
+  background-color: rgb(0, 0, 0);
   color: #ffffff;
   padding: 40px 20px;
   min-height: 100vh;
@@ -414,8 +416,22 @@ li{
   text-align: center;
 }
 
+
+
+/* Main Halloween Theme Container */
+.light .rides-container {
+  background-color: white;
+  color: black;
+  padding: 40px 20px;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Creepster', sans-serif;
+  text-align: center;
+}
+
 /* Add Scary Fog Overlay */
-.dark .halloween-theme::before {
+.dark .rides-container::before {
   content: "";
   position: absolute;
   top: 0;
@@ -566,9 +582,9 @@ li{
 }
 
 /* Images: Creepy flicker effect */
-.dark .ride-content img {
-  width: 100%;
-  height: auto;
+.dark .ride-image img {
+  width: 500px;
+  height: 200px;
   border-radius: 10px;
   margin-bottom: 15px;
   box-shadow: 0 0 10px #ff0000;
@@ -588,7 +604,7 @@ li{
 }
 
 /* No Rides Available Message */
-.dark .halloween-theme h1 {
+.dark .rides-container h1 {
   font-size: 3rem;
   
 }
@@ -605,7 +621,7 @@ li{
 
 
 /* Main Theme Park Halloween Theme Container */
-.light .halloween-theme {
+.light .rides-container {
   background: linear-gradient(135deg, #ff6f61, #ffcc00); /* Bright festive gradient */
   color: #333; /* Dark text for readability */
   padding: 40px 20px;
@@ -680,7 +696,524 @@ li{
   color: #ff5722; /* Bright coral color for ride title */
   font-family: 'Nosifer', cursive;
   font-size: 2.8rem;
+  margin-bottom: 1px;
+  animation: shake 2s infinite ease-in-out, colorPulse 3s infinite;
+  letter-spacing: 3px;
+}
+
+@keyframes colorPulse {
+  0% { color: #ff5722; }
+  50% { color: #ffeb3b; }
+  100% { color: #ff5722; }
+}
+
+/* Images: Fun scaling effect with sparkle */
+.light .ride-image img {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  width: 500px;
+  height: 225px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px #ff4500, 0 0 25px #ff6f61; /* Magical glow around images */
+}
+
+.light .ride-content img:hover {
+  /* transform: scale(1.2) rotate(5deg);  */
+  box-shadow: 0 0 30px #ffcc00, 0 0 40px #ff4500; /* Bright glowing effect on hover */
+  /* animation: imageFlicker 1.5s infinite alternate;  */
+}
+
+@keyframes imageFlicker {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* No Rides Available Message */
+.light .rides-container h1 {
+  font-size: 4rem;
+  color: #ff4500;
+  text-shadow: 0 0 20px #ff6347, 0 0 30px #ffcc00;
+}
+
+/* Floating Halloween Elements */
+.light .rides-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1528910753910-75c1c480c69b') repeat;
+  opacity: 0.2;
+  pointer-events: none;
+  animation: float 10s infinite ease-in-out; /* Floating background */
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Register Component Styling - Disneyland and Festive Theme */
+
+.light .signin {
+  display: flex;
+  justify-content: center; /* Center the form horizontally */
+  align-items: center; /* Center the form vertically */
+  min-height: 80vh; /* Full height of the viewport */
+  background-image: url('https://example.com/magic-background.jpg'); /* Add a magical background (Disneyland-like) */
+  background-size: cover;
+  background-position: center;
+}
+
+.light .card-overlay {
+  background-color: #fffaf0; /* Soft, light cream background like a fairytale */
+  border-radius: 20px; /* Rounded, playful corners */
+  padding: 40px; /* Extra padding for a festive feel */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Stronger shadow for a pop-out effect */
+  width: 100%; /* Full width */
+  max-width: 420px; /* Max width for the form */
+  border: 2px solid #ffcccb; /* Fun, pinkish border to make it pop */
+  position: relative; /* For adding magic sparkles */
+  font-family: 'Disneyland', cursive; /* Add a Disneyland-like font (you can import a magical font) */
+}
+
+.light .card-overlay:before {
+  content: '✨';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: gold;
+}
+
+.light .input-wrapper {
+  margin-bottom: 20px; /* Space between input fields */
+}
+
+.light .input-wrapper label {
+  display: block; /* Make label block to take full width */
+  margin-bottom: 8px; /* Space between label and input */
+  color: #333; /* Label text color */
+  font-weight: 700; /* Bold text */
+  font-family: 'Magic', sans-serif; /* Playful font */
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 1px rgba(255, 102, 0, 0.5); /* Subtle shadow for magical effect */
+}
+
+.light .input-wrapper input {
+  width: 100%; /* Full width for inputs */
+  padding: 12px; /* Padding inside the input */
+  border: 1px solid #ffa07a; /* Festive orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  transition: all 0.3s ease-in-out;
+  background-color: #f0e68c; /* Light yellow input background */
+}
+
+.light .input-wrapper input:focus {
+  border-color: #ff4500; /* Highlighted border on focus */
+  box-shadow: 0 0 8px rgba(255, 69, 0, 0.7); /* Magical glow effect */
+  outline: none;
+}
+
+input::placeholder {
+  opacity: 0.7;
+}
+
+form button {
+  background-color: var(--primary-button-hover);
+  margin: 1em 0;
+  color: var(--link-color-secondary);
+  align-self: center;
+  width: 100%;
+  margin-left: 25px;
+
+}
+
+form button:hover {
+  opacity: 0.7;
+}
+
+form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.ride-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: rgb(251, 249, 249);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ride-info h2 {
+    color: var(--primary-bg);
+    margin-bottom: 1rem;
+  }
+  
+  .ride-info p {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .ride-info img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 1rem 0;
+  }
+  
+  .ride-info button {
+    background-color: var(--primary-bg);
+    color: var(--link-color-secondary);
+    padding: 0.8em 1.2em;
+    margin-top: 1rem;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .ride-info button:hover {
+    background-color: var(--primary-button-hover);
+  }
+
+  .rides-container  {
+    text-align: center;
+  }
+
+
+  :root {
+  --spooky-bg: #0b0f2b;
+  --spooky-text: #f4e0b1;
+  --glow-color: #ff7518;
+  --ghost-white: #ffffff;
+  --shadow-dark: rgba(0, 0, 0, 0.7);
+  --hover-glow: 0 0 15px rgba(255, 117, 24, 0.8);
+}
+
+/* Main Halloween Theme Container */
+.dark .rides-list {
+  background-color: rgb(91, 42, 42);
+  color: #ffffff;
+  padding: 40px 20px;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Creepster', sans-serif;
+  text-align: center;
+}
+
+.light .rides-list {
+  background-color: rgb(255, 255, 255);
+  color: #050505;
+  padding: 40px 20px;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Creepster', sans-serif;
+  text-align: center;
+}
+
+/* Add Scary Fog Overlay */
+.dark .rides-list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://i.imgur.com/Vmy5YvL.png') repeat; /* Dark fog image */
+  opacity: 0.2;
+  z-index: -1;
+  animation: fogMove 10s linear infinite;
+}
+
+/* Add Scary Fog Overlay */
+.light .rides-list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://i.imgur.com/Vmy5YvL.png') repeat; /* Dark fog image */
+  opacity: 0.2;
+  z-index: -1;
+  animation: fogMove 10s linear infinite;
+}
+
+/* Title Styling with Blood Drip and Flicker */
+.dark .spooky-title {
+  font-size: 5rem;
+  color: #ff0000;
+  text-shadow: 0 0 20px #ff0000, 0 0 40px #880000;
+  text-transform: uppercase;
+  position: relative;
+  animation: bloodDrip 4s ease-in-out infinite alternate, flicker 1.5s infinite;
+  margin-bottom: 50px;
+}
+
+@keyframes bloodDrip {
+  0% { text-shadow: 0 0 20px #ff0000; }
+  100% { text-shadow: 0 0 50px #ff0000, 0 5px 20px #550000; }
+}
+
+@keyframes fogMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Ride List Container */
+.dark .rides-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 30px;
+  padding: 20px;
+}
+
+/* Ride Box: Glowing spooky border and hover effect */
+.dark .ride-box {
+  background-color: rgba(40, 0, 40, 0.8);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 0, 0, 1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  width: 300px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Blood Drip Effect */
+.dark .ride-box::before {
+  content: "";
+  position: absolute;
+  width: 100%; 
+  height: 10px; /* Adjust this for the height of the dripping effect */
+  top: -10px; /* Position it above the box */
+  left: 0;
+  background: transparent; /* We will overlay the drops on this */
+}
+
+.light .ride-box::before {
+  content: "";
+  position: absolute;
+  width: 100%; 
+  height: 10px; /* Adjust this for the height of the dripping effect */
+  top: -10px; /* Position it above the box */
+  left: 0;
+  background: transparent; /* We will overlay the drops on this */
+}
+
+
+.dark .ride-box {
+  position: relative; /* Ensure blood drops are positioned relative to this box */
+  overflow: hidden; /* Prevent drops from overflowing outside the box */
+}
+
+/* Blood Drop Styling */
+.dark .blood-drop {
+  position: absolute;
+  background-color: red;
+  border-radius: 50%; /* Make the drops circular */
+}
+
+/* Updated Blood Drops Positioning - 20 drops with longer heights */
+
+
+
+/* Updated Blood Drops Positioning for Dark Mode - 20 drops with longer heights */
+.dark .blood-drop.drop-1 { width: 6px; height: 40px; left: 5%; top: -30px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-2 { width: 8px; height: 50px; left: 12%; top: -35px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-3 { width: 7px; height: 45px; left: 19%; top: -32px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-4 { width: 5px; height: 55px; left: 26%; top: -38px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-5 { width: 9px; height: 60px; left: 33%; top: -40px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-6 { width: 8px; height: 40px; left: 40%; top: -25px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-7 { width: 6px; height: 50px; left: 47%; top: -35px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-8 { width: 10px; height: 55px; left: 54%; top: -45px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-9 { width: 7px; height: 50px; left: 61%; top: -30px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-10 { width: 8px; height: 60px; left: 68%; top: -38px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-11 { width: 5px; height: 40px; left: 75%; top: -25px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-12 { width: 6px; height: 50px; left: 82%; top: -35px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-13 { width: 9px; height: 55px; left: 99%; top: -40px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-14 { width: 7px; height: 40px; left: 96%; top: -30px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-15 { width: 8px; height: 45px; left: 3%; top: -32px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-16 { width: 10px; height: 50px; left: 10%; top: -35px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-17 { width: 6px; height: 55px; left: 17%; top: -38px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-18 { width: 7px; height: 60px; left: 24%; top: -40px; background: radial-gradient(circle, #8B0000, #FF0000);  }
+.dark .blood-drop.drop-19 { width: 8px; height: 40px; left: 1%; top: -25px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-20 { width: 9px; height: 50px; left: 38%; top: -30px; background: radial-gradient(circle, #8B0000, #FF0000);  }
+
+/* Dripping Animation */
+@keyframes drip {
+  0% {
+    top: -20px; /* Start above the card */
+  }
+  50% {
+    top: 20px; /* Move down */
+  }
+  100% {
+    top: -20px; /* Reset back to the start */
+  }
+}
+
+/* Hover Effect: Dark glow and shake */
+.dark .ride-box:hover {
+  transform: scale(1.1) rotate(-3deg);
+  box-shadow: 0 0 60px rgba(255, 0, 0, 1);
+  background-color: #320f32;
+}
+
+/* Title for Each Ride with Scary Animation */
+.dark .ride-content h3 {
+  color: #ff0000;
+  font-family: 'Nosifer', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  animation: shake 2s infinite ease-in-out, pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Images: Creepy flicker effect */
+.dark .ride-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
   margin-bottom: 15px;
+  box-shadow: 0 0 10px #ff0000;
+  animation: flicker 3s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 0.3; }
+}
+
+/* Ride Stats */
+.dark .ride-content h5 {
+  color: #ffcc00;
+  margin: 5px 0;
+}
+
+/* No Rides Available Message */
+.dark .rides-container h1 {
+  font-size: 3rem;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Main Theme Park Halloween Theme Container */
+.light .rides-container {
+  background: linear-gradient(135deg, #ff6f61, #ffcc00); /* Bright festive gradient */
+  color: #333; /* Dark text for readability */
+  padding: 40px 20px;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun font for a festive feel */
+  text-align: center;
+  background-image: url('https://images.unsplash.com/photo-1501700493785-56a2d2bb2875');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  animation: festivalGlow 10s infinite alternate; /* Continuous glow animation */
+  cursor: url('https://i.imgur.com/hwbLWAW.png'), auto; /* Custom cursor for magic touch */
+  filter: drop-shadow(0px 0px 30px rgba(255, 100, 0, 0.6)); /* A glowing drop shadow for extra magic */
+}
+
+@keyframes festivalGlow {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.5); }
+  100% { filter: brightness(1); }
+}
+
+/* Title Styling with a Magical Glow */
+.light .spooky-title {
+  font-size: 7rem; /* Big, bold title */
+  color: #ff4500; /* Bright orange */
+  text-shadow: 0 0 20px #ff6347, 0 0 30px #ff0000, 0 0 50px #ffd700; /* Magical glowing shadow */
+  text-transform: uppercase;
+  margin-bottom: 50px;
+  animation: bounce 1.5s infinite ease-in-out, sparkle 3s infinite alternate; /* Bounce and sparkle animations */
+  letter-spacing: 5px;
+}
+
+@keyframes sparkle {
+  0%, 100% { text-shadow: 0 0 20px #ff6347, 0 0 30px #ff0000; }
+  50% { text-shadow: 0 0 40px #ffcc00, 0 0 60px #ff4500; }
+}
+
+/* Ride List Container */
+.light .rides-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 40px;
+  padding: 20px;
+  perspective: 1000px; /* Adding depth */
+}
+
+/* Ride Box: Vibrant and interactive */
+.light .ride-box {
+  background-color: #ffeedd; /* Light pastel background */
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.8); /* Orange glow */
+  transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+  width: 320px; /* Set width for consistency */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d; /* 3D effect */
+}
+
+.light .ride-box:hover {
+  /* transform: rotateY(15deg) scale(1.1); 3D rotation on hover */
+  transform: scale(1.1) rotate(-3deg);
+  box-shadow: 0 0 40px rgba(255, 165, 0, 1), 0 0 50px rgba(255, 100, 0, 0.7); /* Bright magical glow */
+}
+
+/* Title for Each Ride with Colorful Animation */
+.light .ride-content h3 {
+  color: #ff5722; /* Bright coral color for ride title */
+  font-family: 'Nosifer', cursive;
+  font-size: 2.8rem;
+  margin-bottom: 5px;
   animation: shake 2s infinite ease-in-out, colorPulse 3s infinite;
   letter-spacing: 3px;
 }
@@ -714,14 +1247,14 @@ li{
 }
 
 /* No Rides Available Message */
-.light .halloween-theme h1 {
+.light .rides-container h1 {
   font-size: 4rem;
   color: #ff4500;
   text-shadow: 0 0 20px #ff6347, 0 0 30px #ffcc00;
 }
 
 /* Floating Halloween Elements */
-.light .halloween-theme::after {
+.light .rides-container::after {
   content: '';
   position: absolute;
   top: 0;
@@ -1048,4 +1581,351 @@ background-color: #000411;
 .dark body.ghost-mode .ghost {
   animation: floatGhosts 3s ease-in-out forwards;
 }
+
+.light .rides-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.light .rides-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.rides-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.ride-info {
+  position: relative;
+  height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.light .ride-content img{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.ride-details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 15px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.ride-info:hover .ride-image {
+  transform: scale(1.1);
+  
+}
+
+.ride-info:hover .ride-details {
+  transform: translateY(0);
+}
+
+.ride-details h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.ride-details p {
+  margin: 5px 0;
+  font-size: 0.9em;
+}
+
+.ride-details button {
+  background-color: var(--primary-bg);
+  color: var(--link-color-secondary);
+  padding: 0.5em 1em;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ride-details button:hover {
+  background-color: var(--primary-button-hover);
+}
+
+@media (max-width: 900px) {
+  .rides-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .rides-list {
+    grid-template-columns: 1fr;
+  }
+}
+.food-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.food-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.foods {
+  position: relative;
+  height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.food-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.food-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 15px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.foods:hover .food-image {
+  transform: scale(1.1);
+}
+
+.foods:hover .food-info {
+  transform: translateY(0);
+}
+
+.food-info h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.food-info h5 {
+  margin: 5px 0;
+  font-size: 0.9em;
+}
+
+@media (max-width: 1200px) {
+  ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+#one {
+  background: url('https://img.freepik.com/premium-photo/indulgent-whispers-symphony-gourmet-ice-cream-sundaes_131796-392.jpg')
+    center;
+  background-size: cover;
+}
+
+#two {
+  background: url('https://img.freepik.com/premium-photo/front-view-burger-with-french-fries_762785-43466.jpg')
+    center;
+  background-size: cover;
+}
+
+#three {
+  background: url('https://www.feelgoodbrandscorp.com/GalleryHandler.ashx?ImageId=15115')
+    center;
+  background-size: cover;
+}
+
+#four {
+  background: url('https://www.allrecipes.com/thmb/vG-of0Xa0W0eodSXPWV1KXD009U=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/70935-taqueria-style-tacos-mfs-3x2-35-9145991a0ef94ceb8be05ae8d6be4f0f.jpg')
+    center;
+  background-size: cover;
+}
+
+#five {
+  background: url('https://www.allrecipes.com/thmb/ALYcbI-A_YYn5jiboWYPE2rt310=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-46982-pesto-pasta-with-chicken-DDMFS-4x3-5e043df9d5174cf4ac53612ee0f5b56e.jpg')
+    center;
+  background-size: cover;
+}
+
+#six {
+  background: url('https://cdn11.bigcommerce.com/s-eoqdgo/images/stencil/1280x1280/products/3081/7428/donuts1__33638.1521589783.jpg?c=2')
+    center;
+  background-size: cover;
+}
+
+#seven {
+  background: url('https://cdn.shopify.com/s/files/1/0570/1831/9042/files/P1222495_copy_1024x1024.jpg?v=1629400671')
+    center;
+  background-size: cover;
+}
+
+#eight {
+  background: url('https://i.shgcdn.com/5afb96e7-d69e-4257-9045-4483012b55a9/-/format/auto/-/preview/3000x3000/-/quality/lighter/')
+    center;
+  background-size: cover;
+}
+
+#nine {
+  background: url('https://www.halfmillion.co.uk/wp-content/uploads/2019/08/Half-Million-Banner-Mobile-updated.jpg')
+    center;
+  background-size: cover;
+}
+
+#ten {
+  background: url('https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/photosV2/884eb864-8e54-415a-9c54-5cd7166a8087-69b0f3cf-c3c1-4fc2-bfc9-727713e50774-retina-large.JPG')
+    center;
+  background-size: cover;
+}
+
+#eleven {
+  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKA3my6HmBjHeoLqTdcrb8mTz0Ky4bKtKBNw&s')
+    center;
+  background-size: cover;
+}
+
+#twelve {
+  background: url('https://roiseglobal.co.ke/wp-content/uploads/2023/01/tropical-smoothie-5-1200.jpg')
+    center;
+  background-size: cover;
+}
+
+#thirteen {
+  background: url('https://www.foodandwine.com/thmb/_ICSrWpOxRdBK2gos50iGsrguJo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/FAW-recipes-butter-basted-rib-eye-steaks-hero-03-a2687a0b278b46399b89794fc272ef56.jpg')
+    center;
+  background-size: cover;
+}
+
+#fourteen {
+  background: url('https://tornranch.com/assets/img/hotel-chocolates-03.jpg')
+    center;
+  background-size: cover;
+}
+
+#fifteen {
+  background: url('https://www.onceuponachef.com/images/2013/04/nigellas-party-popcorn-1200x795.jpg')
+    center;
+  background-size: cover;
+}
+
+#sixteen {
+  background: url('https://i0.wp.com/chasety.com/wp-content/uploads/2023/08/realchasecurtis_blueberry_lavender_lemonade_sitting_on_a_cookie_ce5f8270-99df-4aa7-9ede-ab191de61e06.png?fit=735%2C1311&ssl=1')
+    center;
+  background-size: cover;
+}
+
+#I {
+  background: url('https://static01.nyt.com/images/2023/07/02/multimedia/29ROLLERCOASTER-02-lwgc/29ROLLERCOASTER-02-lwgc-mediumSquareAt3X.jpg')
+    center;
+  background-size: cover;
+}
+
+#II {
+  background: url('https://www.gardaland.it/media/ljhe1ugi/copertina-bluetornado.jpg?center=0.22518518518518518,0.79&mode=crop&format=webp&quality=80&width=500&height=500')
+    center;
+  background-size: cover;
+}
+
+#III {
+  background: url('https://img.freepik.com/premium-photo/dragon-roller-coaster-theme-park_1072138-129412.jpg')
+    center;
+  background-size: cover;
+}
+
+#IV {
+  background: url('https://img.freepik.com/premium-photo/monster-with-scary-face-is-front-roller-coaster_783884-404612.jpg')
+    center;
+  background-size: cover;
+}
+
+#V {
+  background: url('https://www.attractiontix.co.uk/blog/wp-content/uploads/2023/09/Screenshot-2023-09-12-16.52.01.png')
+    center;
+  background-size: cover;
+}
+
+#VI {
+  background: url('https://www.worldatlas.com/r/w1200/upload/65/79/7f/roller-coaster.jpg')
+    center;
+  background-size: cover;
+}
+
+#VII {
+  background: url('https://media.licdn.com/dms/image/C4E12AQHYnjrEcwHgpw/article-cover_image-shrink_720_1280/0/1630576036821?e=2147483647&v=beta&t=KvJAzvM89G3oVA5a5iCnrQFJH6P_8HnUG-4O4IU3HXQ')
+    center;
+  background-size: cover;
+}
+
+#VIII {
+  background: url('https://www.emeraldpark.ie/wp-content/uploads/2023/01/rotator-1200.jpg')
+    center;
+  background-size: cover;
+}
+
+#IX {
+  background: url('https://www.newsday.com/_next/image?url=https%3A%2F%2Fcdn.newsday.com%2Fimage-service%2Fversion%2Fc%3AMTE0N2ZhNWEtNzhlYy00%3AYWRiYzM2%2Fkiadven240318.jpg%3Ff%3DLandscape%2B16%253A9%26w%3D770%26q%3D1&w=1920&q=80')
+    center;
+  background-size: cover;
+}
+
+#X {
+  background: url('https://i.pinimg.com/736x/c2/0f/92/c20f92e225de458e1fb337f0b425dddb.jpg')
+    center;
+  background-size: cover;
+}
+
+#XI {
+  background: url('https://lumiere-a.akamaihd.net/v1/images/toystoryland-parks-emeagrid-m_94e598ab.jpeg?region=0,0,800,600')
+    center;
+  background-size: cover;
+}
+
+#XII {
+  background: url('https://www.coaster101.com/wp-content/uploads/2020/11/BGT002.jpg')
+    center;
+  background-size: cover;
+}
+
 
