@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+
+
 :root {
   --primary-bg: #000411;
   --link-color-primary: #aeb7b3;
@@ -7,6 +11,8 @@
   --link-color-secondary: #e1efe6;
   --primary-button-hover: #160c28;
 }
+
+
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -31,6 +37,8 @@ header {
 }
 
 nav{
+  max-height: 4em;
+  min-height: 4em;
   margin-right: 1em;
   display: flex;
   align-content: center;
@@ -48,6 +56,11 @@ nav h3 {
   border-radius: 6px;
   font-weight: 800;
   transition: all 0.2s ease;
+}
+
+.box img {
+  width: 150px;
+  height: 100px
 }
 
 
@@ -71,6 +84,7 @@ nav a:hover {
 .slick-dots {
   bottom: 10px;
 }
+
 
 .carousel-section {
   text-align: center;
@@ -115,11 +129,27 @@ nav a:hover {
   margin-top: 10px;
 }
 
-.ride-button {
+.light .ride-button {
   background-color: #4caf50;
   color: white;
   border: none;
   padding: 15px 30px;
+  width: 170px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin: 10px;
+  position: relative;
+  z-index: 2;
+  transition: background-color 0.3s ease;
+}
+
+.dark .ride-button {
+  background-color: #9b0808;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  width: 170px;
   font-size: 18px;
   cursor: pointer;
   border-radius: 8px;
@@ -215,8 +245,12 @@ nav a:hover {
 }
 
 
+.dark .box .boxContent {
+  margin-top: 100px;
+}
 
-.box {
+
+.box, .dark .box {
   position: relative;
   width: 250px;  /* Define a fixed width for the box */
   height: 250px; /* Define a fixed height for the box */
@@ -231,6 +265,10 @@ nav a:hover {
   padding: 20px; /* Padding inside the box */
 }
 
+li{
+  margin-top: 100px;
+}
+
 @keyframes scaleBorder {
   0%, 100% {
     transform: scale(1);
@@ -238,6 +276,20 @@ nav a:hover {
   50% {
     transform: scale(1.2); /* Scales up the border */
   }
+}
+
+.dark .box::before{
+  content: '';
+  background-image: url('../public/hallow-removebg-preview.png');
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: calc(100% + 150px);
+  height: calc(100% + 150px);
+  border-radius: 15px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
 }
 
 .box::before {
@@ -260,13 +312,12 @@ nav a:hover {
 }
 
 
-
 .boxes {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 120px;
+  gap: 160px;
   margin-top: 100px;
 }
 
@@ -324,6 +375,7 @@ nav a:hover {
 .dark,
 .dark > * {
   background-color: #282c34;
+  color: #f0f0f0;
 }
 
 
@@ -336,96 +388,664 @@ nav a:hover {
 }
 
 
-.dark > nav > .theme-slider-toggle .moon-icon {
+.dark .theme-slider-toggle .moon-icon {
   color: #282c34;
 }
 
-form label {
-  align-self: flex-start;
+
+:root {
+  --spooky-bg: #0b0f2b;
+  --spooky-text: #f4e0b1;
+  --glow-color: #ff7518;
+  --ghost-white: #ffffff;
+  --shadow-dark: rgba(0, 0, 0, 0.7);
+  --hover-glow: 0 0 15px rgba(255, 117, 24, 0.8);
 }
 
-.input-wrapper {
-  width: 80%;
-  margin: 0;
-  padding: 0;
+/* Main Halloween Theme Container */
+.dark .halloween-theme {
+  background-color: black;
+  color: #ffffff;
+  padding: 40px 20px;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Creepster', sans-serif;
+  text-align: center;
 }
 
-.input-wrapper input {
-  padding: 0.6em 1.2em;
-  margin: 0.5em auto;
+/* Add Scary Fog Overlay */
+.dark .halloween-theme::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  border-color: var(--primary-bg);
-  font-size: 1.1rem;
+  height: 100%;
+  background: url('https://i.imgur.com/Vmy5YvL.png') repeat; /* Dark fog image */
+  opacity: 0.2;
+  z-index: -1;
+  animation: fogMove 10s linear infinite;
+}
+
+/* Title Styling with Blood Drip and Flicker */
+.dark .spooky-title {
+  font-size: 5rem;
+  color: #ff0000;
+  text-shadow: 0 0 20px #ff0000, 0 0 40px #880000;
+  text-transform: uppercase;
+  position: relative;
+  animation: bloodDrip 4s ease-in-out infinite alternate, flicker 1.5s infinite;
+  margin-bottom: 50px;
+}
+
+@keyframes bloodDrip {
+  0% { text-shadow: 0 0 20px #ff0000; }
+  100% { text-shadow: 0 0 50px #ff0000, 0 5px 20px #550000; }
+}
+
+@keyframes fogMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Ride List Container */
+.dark .rides-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 30px;
+  padding: 20px;
+}
+
+/* Ride Box: Glowing spooky border and hover effect */
+.dark .ride-box {
+  background-color: rgba(40, 0, 40, 0.8);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 0, 0, 1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  width: 300px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Blood Drip Effect */
+.dark .ride-box::before {
+  content: "";
+  position: absolute;
+  width: 100%; 
+  height: 10px; /* Adjust this for the height of the dripping effect */
+  top: -10px; /* Position it above the box */
+  left: 0;
+  background: transparent; /* We will overlay the drops on this */
+}
+
+.light .ride-box::before {
+  content: "";
+  position: absolute;
+  width: 100%; 
+  height: 10px; /* Adjust this for the height of the dripping effect */
+  top: -10px; /* Position it above the box */
+  left: 0;
+  background: transparent; /* We will overlay the drops on this */
+}
+
+
+.dark .ride-box {
+  position: relative; /* Ensure blood drops are positioned relative to this box */
+  overflow: hidden; /* Prevent drops from overflowing outside the box */
+}
+
+/* Blood Drop Styling */
+.dark .blood-drop {
+  position: absolute;
+  background-color: red;
+  border-radius: 50%; /* Make the drops circular */
+}
+
+/* Updated Blood Drops Positioning - 20 drops with longer heights */
+
+
+
+/* Updated Blood Drops Positioning for Dark Mode - 20 drops with longer heights */
+.dark .blood-drop.drop-1 { width: 6px; height: 40px; left: 5%; top: -30px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-2 { width: 8px; height: 50px; left: 12%; top: -35px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-3 { width: 7px; height: 45px; left: 19%; top: -32px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-4 { width: 5px; height: 55px; left: 26%; top: -38px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-5 { width: 9px; height: 60px; left: 33%; top: -40px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-6 { width: 8px; height: 40px; left: 40%; top: -25px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-7 { width: 6px; height: 50px; left: 47%; top: -35px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-8 { width: 10px; height: 55px; left: 54%; top: -45px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-9 { width: 7px; height: 50px; left: 61%; top: -30px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-10 { width: 8px; height: 60px; left: 68%; top: -38px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-11 { width: 5px; height: 40px; left: 75%; top: -25px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-12 { width: 6px; height: 50px; left: 82%; top: -35px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-13 { width: 9px; height: 55px; left: 99%; top: -40px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-14 { width: 7px; height: 40px; left: 96%; top: -30px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-15 { width: 8px; height: 45px; left: 3%; top: -32px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-16 { width: 10px; height: 50px; left: 10%; top: -35px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-17 { width: 6px; height: 55px; left: 17%; top: -38px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-18 { width: 7px; height: 60px; left: 24%; top: -40px; background: radial-gradient(circle, #8B0000, #FF0000);  }
+.dark .blood-drop.drop-19 { width: 8px; height: 40px; left: 1%; top: -25px; background: radial-gradient(circle, #8B0000, #FF0000); }
+.dark .blood-drop.drop-20 { width: 9px; height: 50px; left: 38%; top: -30px; background: radial-gradient(circle, #8B0000, #FF0000);  }
+
+/* Dripping Animation */
+@keyframes drip {
+  0% {
+    top: -20px; /* Start above the card */
+  }
+  50% {
+    top: 20px; /* Move down */
+  }
+  100% {
+    top: -20px; /* Reset back to the start */
+  }
+}
+
+/* Hover Effect: Dark glow and shake */
+.dark .ride-box:hover {
+  transform: scale(1.1) rotate(-3deg);
+  box-shadow: 0 0 60px rgba(255, 0, 0, 1);
+  background-color: #320f32;
+}
+
+/* Title for Each Ride with Scary Animation */
+.dark .ride-content h3 {
+  color: #ff0000;
+  font-family: 'Nosifer', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  animation: shake 2s infinite ease-in-out, pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Images: Creepy flicker effect */
+.dark .ride-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 10px #ff0000;
+  animation: flicker 3s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 0.3; }
+}
+
+/* Ride Stats */
+.dark .ride-content h5 {
+  color: #ffcc00;
+  margin: 5px 0;
+}
+
+/* No Rides Available Message */
+.dark .halloween-theme h1 {
+  font-size: 3rem;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Main Theme Park Halloween Theme Container */
+.light .halloween-theme {
+  background: linear-gradient(135deg, #ff6f61, #ffcc00); /* Bright festive gradient */
+  color: #333; /* Dark text for readability */
+  padding: 40px 20px;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Comic Sans MS', cursive, sans-serif; /* Fun font for a festive feel */
+  text-align: center;
+  background-image: url('https://images.unsplash.com/photo-1501700493785-56a2d2bb2875');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  animation: festivalGlow 10s infinite alternate; /* Continuous glow animation */
+  cursor: url('https://i.imgur.com/hwbLWAW.png'), auto; /* Custom cursor for magic touch */
+  filter: drop-shadow(0px 0px 30px rgba(255, 100, 0, 0.6)); /* A glowing drop shadow for extra magic */
+}
+
+@keyframes festivalGlow {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.5); }
+  100% { filter: brightness(1); }
+}
+
+/* Title Styling with a Magical Glow */
+.light .spooky-title {
+  font-size: 7rem; /* Big, bold title */
+  color: #ff4500; /* Bright orange */
+  text-shadow: 0 0 20px #ff6347, 0 0 30px #ff0000, 0 0 50px #ffd700; /* Magical glowing shadow */
+  text-transform: uppercase;
+  margin-bottom: 50px;
+  animation: bounce 1.5s infinite ease-in-out, sparkle 3s infinite alternate; /* Bounce and sparkle animations */
+  letter-spacing: 5px;
+}
+
+@keyframes sparkle {
+  0%, 100% { text-shadow: 0 0 20px #ff6347, 0 0 30px #ff0000; }
+  50% { text-shadow: 0 0 40px #ffcc00, 0 0 60px #ff4500; }
+}
+
+/* Ride List Container */
+.light .rides-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 40px;
+  padding: 20px;
+  perspective: 1000px; /* Adding depth */
+}
+
+/* Ride Box: Vibrant and interactive */
+.light .ride-box {
+  background-color: #ffeedd; /* Light pastel background */
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.8); /* Orange glow */
+  transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+  width: 320px; /* Set width for consistency */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d; /* 3D effect */
+}
+
+.light .ride-box:hover {
+  /* transform: rotateY(15deg) scale(1.1); 3D rotation on hover */
+  transform: scale(1.1) rotate(-3deg);
+  box-shadow: 0 0 40px rgba(255, 165, 0, 1), 0 0 50px rgba(255, 100, 0, 0.7); /* Bright magical glow */
+}
+
+/* Title for Each Ride with Colorful Animation */
+.light .ride-content h3 {
+  color: #ff5722; /* Bright coral color for ride title */
+  font-family: 'Nosifer', cursive;
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  animation: shake 2s infinite ease-in-out, colorPulse 3s infinite;
+  letter-spacing: 3px;
+}
+
+@keyframes colorPulse {
+  0% { color: #ff5722; }
+  50% { color: #ffeb3b; }
+  100% { color: #ff5722; }
+}
+
+/* Images: Fun scaling effect with sparkle */
+.light .ride-content img {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px #ff4500, 0 0 25px #ff6f61; /* Magical glow around images */
+}
+
+.light .ride-content img:hover {
+  /* transform: scale(1.2) rotate(5deg);  */
+  box-shadow: 0 0 30px #ffcc00, 0 0 40px #ff4500; /* Bright glowing effect on hover */
+  /* animation: imageFlicker 1.5s infinite alternate;  */
+}
+
+@keyframes imageFlicker {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* No Rides Available Message */
+.light .halloween-theme h1 {
+  font-size: 4rem;
+  color: #ff4500;
+  text-shadow: 0 0 20px #ff6347, 0 0 30px #ffcc00;
+}
+
+/* Floating Halloween Elements */
+.light .halloween-theme::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1528910753910-75c1c480c69b') repeat;
+  opacity: 0.2;
+  pointer-events: none;
+  animation: float 10s infinite ease-in-out; /* Floating background */
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Register Component Styling - Disneyland and Festive Theme */
+
+.light .signin {
+  display: flex;
+  justify-content: center; /* Center the form horizontally */
+  align-items: center; /* Center the form vertically */
+  min-height: 80vh; /* Full height of the viewport */
+  background-image: url('https://example.com/magic-background.jpg'); /* Add a magical background (Disneyland-like) */
+  background-size: cover;
+  background-position: center;
+}
+
+.light .card-overlay {
+  background-color: #fffaf0; /* Soft, light cream background like a fairytale */
+  border-radius: 20px; /* Rounded, playful corners */
+  padding: 40px; /* Extra padding for a festive feel */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Stronger shadow for a pop-out effect */
+  width: 100%; /* Full width */
+  max-width: 420px; /* Max width for the form */
+  border: 2px solid #ffcccb; /* Fun, pinkish border to make it pop */
+  position: relative; /* For adding magic sparkles */
+  font-family: 'Disneyland', cursive; /* Add a Disneyland-like font (you can import a magical font) */
+}
+
+.light .card-overlay:before {
+  content: '✨';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: gold;
+}
+
+.light .input-wrapper {
+  margin-bottom: 20px; /* Space between input fields */
+}
+
+.light .input-wrapper label {
+  display: block; /* Make label block to take full width */
+  margin-bottom: 8px; /* Space between label and input */
+  color: #333; /* Label text color */
+  font-weight: 700; /* Bold text */
+  font-family: 'Magic', sans-serif; /* Playful font */
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 1px rgba(255, 102, 0, 0.5); /* Subtle shadow for magical effect */
+}
+
+.light .input-wrapper input {
+  width: 100%; /* Full width for inputs */
+  padding: 12px; /* Padding inside the input */
+  border: 1px solid #ffa07a; /* Festive orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  transition: all 0.3s ease-in-out;
+  background-color: #f0e68c; /* Light yellow input background */
+}
+
+.light .input-wrapper input:focus {
+  border-color: #ff4500; /* Highlighted border on focus */
+  box-shadow: 0 0 8px rgba(255, 69, 0, 0.7); /* Magical glow effect */
   outline: none;
 }
 
-input::placeholder {
-  opacity: 0.7;
+.light .submit {
+  width: 100%; /* Full width for button */
+  padding: 15px; /* Padding inside button */
+  background-color: #ff6347; /* Fun, festive red background */
+  color: white; /* Button text color */
+  border: none; /* No border */
+  border-radius: 20px; /* Rounded corners for fun */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
+  font-family: 'Magic', sans-serif; /* Festive font */
+  font-size: 1.1rem;
 }
 
-form button {
-  background-color: var(--primary-button-hover);
-  margin: 1em 0;
-  color: var(--link-color-secondary);
-  align-self: center;
+.light .submit:hover {
+  background-color: #ff4500; /* Darker red on hover */
+  transform: scale(1.05); /* Slightly grow on hover */
+  box-shadow: 0 0 10px rgba(255, 69, 0, 0.7); /* Magical glow on hover */
+}
+
+.light .submit:disabled {
+  background-color: #ffd700; /* Golden background for disabled button */
+  color: #f4f4f4; /* Light text color */
+  cursor: not-allowed; /* Not-allowed cursor */
+  box-shadow: none; /* No glow */
+}
+
+/* Add small magical sparkles around the card */
+.light .card-overlay::before,
+.light .card-overlay::after {
+  content: '✨';
+  position: absolute;
+  font-size: 1.5rem;
+  color: gold;
+}
+
+.light .card-overlay::before {
+  top: -10px;
+  left: 20px;
+}
+
+.light .card-overlay::after {
+  bottom: -10px;
+  right: 20px;
+}
+
+
+
+
+
+
+/* Register Component Styling - Dark, Scary Halloween Theme */
+
+.dark .signin {
+  display: flex;
+  justify-content: center; /* Center the form horizontally */
+  align-items: center; /* Center the form vertically */
+  min-height: 80vh; /* Full height of the viewport */
+  background-color: #121212; /* Dark background like a haunted house */
+  background-image: url('https://example.com/creepy-background.jpg'); /* Optional: Add a creepy background */
+  background-size: cover;
+  background-position: center;
+  color: #f5f5f5; /* Light text color */
+}
+
+.dark .card-overlay {
+  background-color: #2a2a2a; /* Dark, haunted gray background for the form */
+  border-radius: 15px; /* Rounded, ghostly corners */
+  padding: 35px; /* Padding inside the form */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6); /* Deep, eerie shadow */
+  width: 100%; /* Full width */
+  max-width: 420px; /* Max width for the form */
+  border: 1px solid #ff4500; /* Creepy orange border like jack-o-lantern eyes */
+  position: relative; /* For spooky elements */
+  font-family: 'Creepster', cursive; /* Use a spooky, horror-themed font */
+}
+
+.dark .card-overlay:before {
+  content: '🕸️'; /* Spider web emoji as a spooky accent */
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: #ff6347; /* Eerie orange color for the web */
+}
+
+html .light{
+background-color:var(--secondary-bg);
+  
+}
+
+html .dark{
+background-color: #000411;
+}
+
+.dark .input-wrapper {
+  margin-bottom: 20px; /* Space between input fields */
+}
+
+.dark .input-wrapper label {
+  display: block; /* Make label block to take full width */
+  margin-bottom: 8px; /* Space between label and input */
+  color: #ff6347; /* Eerie orange label text */
+  font-weight: 600; /* Bold text */
+  font-family: 'Creepster', sans-serif; /* Spooky font */
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(255, 69, 0, 0.6); /* Creepy shadow */
+}
+
+.dark .input-wrapper input {
+  width: 100%; /* Full width for inputs */
+  padding: 12px; /* Padding inside the input */
+  border: 1px solid #ff4500; /* Creepy orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  background-color: #1a1a1a; /* Dark, spooky background inside input fields */
+  color: #fff; /* White text */
+  transition: all 0.3s ease-in-out;
+}
+
+.dark .input-wrapper input:focus {
+  border-color: #d73a00; /* Blood-red border on focus */
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* Red glow like blood dripping */
+  outline: none;
+}
+
+.dark .submit {
+  width: 100%; /* Full width for button */
+  padding: 15px; /* Padding inside button */
+  background-color: #d73a00; /* Blood-red button background */
+  color: white; /* Button text color */
+  border: none; /* No border */
+  border-radius: 15px; /* Rounded corners for sinister look */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+  font-family: 'Creepster', sans-serif; /* Scary font */
+  font-size: 1.1rem;
+}
+
+.dark .submit:hover {
+  background-color: #b22222; /* Darker red on hover */
+  transform: scale(1.05); /* Slightly grow on hover */
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.9); /* Sinister glow on hover */
+}
+
+.dark .submit:disabled {
+  background-color: #444; /* Dark gray background for disabled button */
+  color: #bbb; /* Dimmed text color */
+  cursor: not-allowed; /* Not-allowed cursor */
+  box-shadow: none; /* No glow */
+}
+
+.dark .card-overlay:before,
+.dark .card-overlay:after {
+  content: '💀'; /* Skull emoji for spooky elements */
+  position: absolute;
+  font-size: 1.5rem;
+  color: #ff4500;
+}
+
+.dark .card-overlay:before {
+  top: -10px;
+  left: 20px;
+}
+
+.dark .card-overlay:after {
+  bottom: -10px;
+  right: 20px;
+}
+
+/* Spooky Animation for extra effect */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.dark .signin {
+  animation: flicker 2s infinite ease-in-out; /* Flickering effect on the background */
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Ghost Container */
+.dark .ghost-container {
+  position: fixed;
+  bottom: 0;
   width: 100%;
-  margin-left: 25px;
-
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
 }
 
-form button:hover {
-  opacity: 0.7;
+/* Individual Ghosts */
+.dark .ghost {
+  position: absolute;
+  bottom: -50px; /* Start from below the viewport */
+  font-size: 50px;
+  opacity: 0;
+  animation: floatGhosts 3s ease-in-out forwards;
 }
 
-form button:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
+
+.light .ghost{
+  color: transparent;
+  background-color: transparent;
 }
 
-.ride-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: rgb(251, 249, 249);
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+@keyframes floatGhosts {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
   }
-  
-  .ride-info h2 {
-    color: var(--primary-bg);
-    margin-bottom: 1rem;
+  50% {
+    opacity: 1;
   }
-  
-  .ride-info p {
-    text-align: center;
-    margin-bottom: 0.5rem;
-    color: #333;
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
   }
-  
-  .ride-info img {
-    max-width: 100%;
-    border-radius: 8px;
-    margin: 1rem 0;
-  }
-  
-  .ride-info button {
-    background-color: var(--primary-bg);
-    color: var(--link-color-secondary);
-    padding: 0.8em 1.2em;
-    margin-top: 1rem;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  .ride-info button:hover {
-    background-color: var(--primary-button-hover);
-  }
+}
 
-  .rides-container  {
-    text-align: center;
-  }
-
+/* Only trigger this animation when ghost-mode is active */
+.dark body.ghost-mode .ghost {
+  animation: floatGhosts 3s ease-in-out forwards;
+}
 

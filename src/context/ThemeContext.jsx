@@ -6,9 +6,18 @@ export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState('light')
 
   const toggleTheme = () => {
-    console.log('TOGGLING!')
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light')) //want this to return smth
+    const newTheme = theme === 'light' ? 'dark' : 'light'
+    setTheme(newTheme)
+    
+    // Trigger ghost animation when switching to dark mode
+    if (newTheme === 'dark') {
+      document.body.classList.add('ghost-mode')
+      setTimeout(() => {
+        document.body.classList.remove('ghost-mode') // Remove animation class after a while
+      }, 3000) // Adjust time to match the animation duration
+    }
   }
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}

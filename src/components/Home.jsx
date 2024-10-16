@@ -1,6 +1,7 @@
 import React from 'react' // Custom CSS for styling and animation
 import Slider from 'react-slick'
 import { Link } from 'react-router-dom'
+import Ghosts from './Ghosts'
 
 const Home = () => {
   const settings = {
@@ -15,10 +16,13 @@ const Home = () => {
   }
 
   return (
+    <>
     <Slider {...settings}>
+      
       <div className="carousel-section">
         <h1>Welcome to Our Amusement Park</h1>
         <p>Where dreams do come true</p>
+        <img src="../../public/" alt="" />
       </div>
       <div className="carousel-section ridesPoster">
         <h1>Enjoy Thrilling Rides!</h1>
@@ -45,7 +49,9 @@ const Home = () => {
         </Link>
 
       </div>
-    </Slider>
+      
+    </Slider><Ghosts />
+    </>
   )
 }
 

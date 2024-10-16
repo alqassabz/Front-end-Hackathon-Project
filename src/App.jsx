@@ -13,6 +13,7 @@ import { useState, useEffect } from 'react'
 import { CheckSession } from './services/Auth'
 import Rides from './components/Rides'
 import rides from './rides'
+import Ghosts from './components/Ghosts'
 
 const App = () => {
   const { theme } = useContext(ThemeContext)
@@ -38,21 +39,26 @@ const App = () => {
     }
   }, [])
 
+  useEffect(() => {
+    // Apply the theme to the body or html element
+    document.documentElement.className = theme
+  }, [theme])
+
   return (
     <div className="App ">
       <div className={theme}>
         <Nav />
-
+       
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-              <Route path="/rides" element={<Rides rides={rides}/>} />
+            <Route path="/rides" element={<Rides rides={rides} />} />
 
-          <Route path="/signin" element={<SignIn setUser={setUser} />} />
-          <Route path="/register" element={<Register />} />
-           
+            <Route path="/signin" element={<SignIn setUser={setUser} />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
         </main>
+        
       </div>
     </div>
   )
